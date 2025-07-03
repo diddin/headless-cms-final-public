@@ -11,8 +11,7 @@
             <label class="text-sm font-medium">🇬🇧 {{ $label }} (EN)</label>
             <textarea
                 id="{{ $field }}_en"
-                wire:model.defer="excerpt.en"
-                {{-- wire:model.defer="{{ $field }}.en" --}}
+                wire:model.defer="{{ $field }}.en"
                 placeholder="{{ $placeholder }}"
                 rows="5"
                 class="w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-sm p-3 resize-none transition"
