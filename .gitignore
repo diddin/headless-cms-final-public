@@ -23,5 +23,5 @@ yarn-error.log
 /.vscode
 /.zed
 .result
-.note
+test.note
 .github/workflows/deploy.yml
