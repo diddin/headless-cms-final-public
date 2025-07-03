@@ -1,0 +1,114 @@
+### Set Auth Token
+@token = 2|UlCZi0lMpHe8dhWK1XkUAXF9NJy0b1DNIEdDn0nff0d73b32
+@baseUrl = http://localhost:8000/api/v1/posts
+
+### Get all posts (paginated)
+GET {{baseUrl}}?per_page=5
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+### Get post by ID
+GET {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+### Create post (JSON)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": {
+    "en": "New EN Title",
+    "id": "Judul Baru ID"
+  },
+  "content": {
+    "en": "This is the EN content.",
+    "id": "Ini konten bahasa Indonesia."
+  },
+  "excerpt": {
+    "en": "Short summary",
+    "id": "Ringkasan singkat"
+  },
+  "status": "draft",
+  "published_at": "2025-07-01 10:00:00",
+  "categories": [1, 2]
+}
+
+###
+
+### Create post (multipart/form-data)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: multipart/form-data
+
+title[en]=Post Title EN
+title[id]=Judul Post ID
+content[en]=Content EN
+content[id]=Konten ID
+excerpt[en]=Excerpt EN
+excerpt[id]=Ringkasan ID
+status=published
+published_at=2025-07-01 10:00:00
+categories[]=1
+categories[]=2
+image=@/absolute/path/to/image.jpg
+
+###
+
+### Update post (JSON)
+PUT {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": {
+    "en": "Updated EN Title",
+    "id": "Judul Diperbarui ID"
+  },
+  "content": {
+    "en": "Updated EN Content",
+    "id": "Konten ID Diperbarui"
+  },
+  "excerpt": {
+    "en": "Updated summary",
+    "id": "Ringkasan Diperbarui"
+  },
+  "status": "published",
+  "published_at": "2025-07-02 09:30:00",
+  "categories": [2, 3]
+}
+
+###
+
+### Update post (multipart/form-data)
+PUT {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: multipart/form-data
+
+title[en]=Updated EN Title
+title[id]=Judul Diperbarui ID
+content[en]=Updated EN Content
+content[id]=Konten ID Diperbarui
+excerpt[en]=Updated summary
+excerpt[id]=Ringkasan Diperbarui
+status=published
+published_at=2025-07-02 09:30:00
+categories[]=2
+categories[]=3
+image=@/absolute/path/to/new-image.jpg
+
+###
+
+### Delete post
+DELETE {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Accept: application/json

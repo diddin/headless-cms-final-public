@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    image: laravel-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APP_ENV=production
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravelpassword
+    ports:
+      - "3306:3306"

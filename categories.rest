@@ -1,0 +1,49 @@
+# Categories API Endpoints
+# =========================
+
+@token = 2|UlCZi0lMpHe8dhWK1XkUAXF9NJy0b1DNIEdDn0nff0d73b32
+@baseUrl = http://localhost:8000/api/v1/categories
+
+# List all categories (GET)
+# --------------------------
+GET {{baseUrl}}
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# --------------------------
+
+### Get a single category (GET)
+GET {{baseUrl}}/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# --------------------------
+
+### Create a new category (POST)
+POST {{baseUrl}}
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Technology Nuclear"
+}
+
+###
+
+### Update a category (PUT)
+PUT {{baseUrl}}/1
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Tech A, PC & Gadgets"
+}
+
+###
+
+### Delete a category (DELETE)
+DELETE {{baseUrl}}/5
+Accept: application/json
+Authorization: Bearer {{token}}

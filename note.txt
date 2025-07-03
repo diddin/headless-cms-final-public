@@ -1,0 +1,17 @@
+Pada momen kali ini saya akan menjelaskan tentang aplikasi yang saya buat: 
+
+Yang pertama yaitu tentang arsitektur aplikasinya. 
+Saya menerapkan Service-Repository Pattern, di mana:
+
+1. **Service** bertindak sebagai lapisan bisnis (business logic layer) yang mengatur proses dan aturan dalam aplikasi.
+2. **Repository** bertindak sebagai lapisan akses data (data access layer) yang berkomunikasi langsung dengan basis data.
+
+Arsitektur ini membantu memisahkan tanggung jawab antara logika bisnis dan akses data, 
+sehingga membuat kode lebih terstruktur dan mudah dipelihara.
+
+Content Manajement System 
+
+
+
+Yang kedua yaitu tentang teknologi yang saya gunakan.
+Saya menggunakan beberapa teknologi berikut:

@@ -1,0 +1,16 @@
+chmod 600 ec2-prod-key.pem
+ssh -i ec2-prod-key.pem ubuntu@13.210.72.244
+
+Untuk GitHub Actions (CI/CD)
+Di repo GitHub kamu:
+
+Masukkan Secrets berikut:
+Name	Value
+PRODUCTION_SSH_PRIVATE_KEY	⬅️ isi file .pem (private key)
+PRODUCTION_SSH_USER	ubuntu
+PRODUCTION_SSH_HOST	13.210.72.244
+
+
+docker-compose -f docker-compose-production.yml build
+docker-compose -f docker-compose-production.yml up -d
+docker-compose -f docker-compose-production.yml down

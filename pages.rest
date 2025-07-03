@@ -1,0 +1,74 @@
+# Headless CMS API Requests
+# =========================
+# This file contains HTTP requests for interacting with the Headless CMS API.
+# Each section is clearly labeled for better readability.
+
+@token = 2|UlCZi0lMpHe8dhWK1XkUAXF9NJy0b1DNIEdDn0nff0d73b32
+@baseUrl = http://localhost:8000/api/v1/posts
+
+# ============================================
+# List All Pages (GET)
+# ============================================
+GET http://localhost:8000/api/v1/pages
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# ============================================
+# Show Single Page (GET)
+# ============================================
+GET http://localhost:8000/api/v1/pages/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# ============================================
+# Create New Page (POST)
+# ============================================
+POST http://localhost:8000/api/v1/pages
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "About Us",
+  "body": [
+    {
+      "type": "heading",
+      "data": { "text": "About Us", "level": 2 }
+    },
+    {
+      "type": "paragraph",
+      "data": { "text": "We are a company that..." }
+    }
+  ],
+  "status": "published"
+}
+
+###
+
+### Update a page (PUT)
+PUT http://localhost:8000/api/v1/pages/1
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Updated About Page",
+  "body": [
+    {
+      "type": "heading",
+      "data": { "text": "Updated Heading", "level": 3 }
+    },
+    {
+      "type": "paragraph",
+      "data": { "text": "Updated content here..." }
+    }
+  ],
+  "status": "draft"
+}
+
+###
+
+### Delete a page (DELETE)
+DELETE http://localhost:8000/api/v1/pages/1
+Accept: application/json
+Authorization: Bearer {{token}}
