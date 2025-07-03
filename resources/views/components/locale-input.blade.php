@@ -6,8 +6,7 @@
 ])
 
 <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div> <pre class="text-xs text-gray-400">{{ var_export($field, true) }}</pre>
-        <pre class="text-xs text-gray-400">{{ var_export($attributes->wire('model')->value(), true) }}</pre>
+    <div>
         @if ($type === 'textarea')
             <label class="text-sm font-medium">🇬🇧 {{ $label }} (EN)</label>
             <textarea
